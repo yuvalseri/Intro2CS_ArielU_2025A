@@ -32,7 +32,7 @@ Class 9: Recursion: https://docs.google.com/presentation/d/1bcKU1Puh1OOWaESAZ6EX
 
 Assignments: 
 
-Ex0: https://docs.google.com/document/d/1U9C1OMqJlO-B89AGmawHjuDAdwhEx_HK/
+Ex0: https://docs.google.com/document/d/1UQyZrfh4Rvkw1d0hNMeYJbc-vEr9FQAH/edit?usp=sharing&ouid=113711744349547563645&rtpof=true&sd=true
 
 
 
