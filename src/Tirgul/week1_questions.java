@@ -68,6 +68,6 @@ public class week1_questions {
         double area = radius*radius*3.14159;
         double Perimeter = radius * 2 * 3.14159;
         System.out.println("The circle area is "+area+", and the perimeter is "+Perimeter);
-
+        // Mashu
     }
 }
