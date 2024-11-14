@@ -14,7 +14,7 @@ public class Array_test {
 		System.out.println("cc==dd "+(cc==dd));
 		dd[0]= -1;
 //		double sum = 0;
-		
+
 		double[][] arr_2d;
 		arr_2d = new double[3][];
 		arr_2d[0] = cc;
