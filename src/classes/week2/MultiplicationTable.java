@@ -2,6 +2,7 @@ package classes.week2;
 
 /**
  * This class represents a Multiplication Table of 1-10
+ * Written as a class example.
  * As in https://en.wikipedia.org/wiki/Multiplication_table
  * 1    2   3   4   5   ...
  * 2    4   6
