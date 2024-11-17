@@ -8,8 +8,8 @@ package classes.week2;
  */
 public class GCD0 {
 	public static void main(String[] args) {
-		int x = 12;
-		int y = 20;
+		int x = 5*7*19*31;
+		int y = 3*7*19*331;
 		//int t = 0;
 		int i=1, gcd=1;
 		System.out.print("GCD("+x+","+y+") = ");
