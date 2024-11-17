@@ -40,9 +40,10 @@ public class Ex1 {
         /**
          * Calculate the number representation (in basis base)
          * of the given natural number (represented as an integer).
+         * If num<0 or base is not in [2,16] the function should return "" (the empty String).
          * @param num the natural number (include 0).
          * @param base the basis [2,16]
-         * @return a String representing a number (in basis nase) equals to num.
+         * @return a String representing a number (in base) equals to num, or an empty String (in case of wrong input).
          */
         public static String int2Number(int num, int base) {
             String ans = "";
