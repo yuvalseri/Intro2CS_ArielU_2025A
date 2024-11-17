@@ -29,7 +29,6 @@ public class GCD_Functions {
         int g5 = gcd5(x, 30);
         System.out.print("gcd5(" + x + "," + y + ") = " + g5);
     }
-
     /**
      * GCD: Greatest Common Divisor, as in:
      * https://en.wikipedia.org/wiki/Greatest_common_divisor
