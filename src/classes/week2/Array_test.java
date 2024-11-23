@@ -1,5 +1,9 @@
 package classes.week2;
 
+/**
+ * A basic example of using arrays (1D & 2D) in java.
+ * Make sure you run this example in debug mode - to see how the 
+ */
 public class Array_test {
 	public static void main(String[] aa) {
 		String[] ar = {"123", "aaaa", "~~~"};
@@ -10,7 +14,7 @@ public class Array_test {
 		System.out.println("cc==dd "+(cc==dd));
 		dd[0]= -1;
 //		double sum = 0;
-		
+
 		double[][] arr_2d;
 		arr_2d = new double[3][];
 		arr_2d[0] = cc;
@@ -18,6 +22,5 @@ public class Array_test {
 		dd = cc;
 		arr_2d[2] = dd;
 		cc[1] = 3;
-		
 	}
 }
