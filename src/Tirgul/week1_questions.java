@@ -6,11 +6,18 @@ package Tirgul;
 
 import classes.week3.MyConsole;
 
+import java.util.Scanner;
+
 public class week1_questions {
     public static void main(String[] args) {
 
         // Section 1: Swapping two numbers
         // This section reads two integers from the user, swaps their values, and prints the result.
+        Scanner sc = new Scanner(System.in);
+        int x;
+        System.out.println("Enter a number");
+        x = sc.nextInt();
+
         int first = MyConsole.readInt("Enter num: ");
         int second = MyConsole.readInt("Enter num: ");
         System.out.println("Before swapping");
