@@ -1,7 +1,11 @@
 package assignments.ex1;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Test;
+
+import static assignments.ex1.Ex1.int2Number;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * This JUnit class represents a very partial test class for Ex1.
@@ -9,20 +13,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class Ex1Test {
         @Test
-        void computeNumberTest() {
+        public void computeNumberTest() {
             String s2 = "1011b2";
             int v = Ex1.number2Int(s2);
             assertEquals(v,11);
             String s10 = "1011bA";
             v = Ex1.number2Int(s10);
-            s2 = Ex1.int2Number(v,2);
+            s2 = int2Number(v,2);
             int v2 = Ex1.number2Int(s2);
             assertEquals(v,v2);
             assertTrue(Ex1.equals(s10,s2));
         }
 
         @Test
-        void isBasisNumberTest() {
+        public void isBasisNumberTest() {
             String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
             for(int i=0;i<good.length;i=i+1) {
                 boolean ok = Ex1.isNumber(good[i]);
@@ -35,11 +39,17 @@ public class Ex1Test {
             }
         }
         @Test
-        void int2NumberTest() {
-           // implement this test
+        public void int2NumberTest() {
+            assertEquals("15b10", int2Number(15, 10));
+            assertEquals("11b2", int2Number(3, 2));
+            assertEquals("222b8", int2Number(146, 8));
+            assertEquals("Fb16", int2Number(15, 16));
+            assertEquals("", int2Number(-2, 10));
+            assertEquals("", int2Number(5, 17));
+            assertEquals("0", int2Number(0, 2));
         }
         @Test
-        void maxIndexTest() {
+        public void maxIndexTest() {
             // implement this test
         }
 

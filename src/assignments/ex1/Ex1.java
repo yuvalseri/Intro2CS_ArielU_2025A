@@ -19,12 +19,66 @@ public class Ex1 {
          * @return
          */
         public static int number2Int(String num) {
-            int ans = -1;
-            // add your code here
+            if (num == null || num.isEmpty()) {
+                return -1;
+            }
+            int bindex = num.indexOf('b');
+            if (bindex == 0 || bindex == num.length() - 1) {
+                return -1;
+            }
 
+            String numPart = num.substring(0, bindex);
+            String basePart = num.substring(bindex + 1, num.length() - 1);
+            char baseChar = basePart.charAt(0);
+            int base = Character.digit(baseChar, 36); //Converting the char to int value
+
+            if (!isValidbase(basePart)) {
+                return -1;
+            }
+            // add your code here
+            int decimalnum = 0;
+            int power = 0;
+            char[] chars = numPart.toCharArray();
+
+            for (int i = chars.length-1; i >= 0; i--) {
+                char c = chars[i];
+                int digit = Character.digit(c, base);
+                decimalnum += (int) (digit * (Math.pow(base,power)));
+                power += 1;
+            }
+            return decimalnum;
             ////////////////////
-            return ans;
+
         }
+        public static boolean isValidbase(String basePart){
+            if (basePart.length() != 1){                     //if the length of the base is different from 1
+                return false;                                  // The base is only one char
+            }
+            char baseChar= basePart.charAt(0);
+            int base = Character.digit(baseChar, 36);   //Converting the char to int value
+            if( base >= 2 && base <= 16){
+                return true;                                // if the value of base is between 2 to 16,the base is valid
+            }
+            return false;
+        }
+        public static boolean isValidnum(String num){
+            int bindex = num.indexOf('b');
+            String numPart = num.substring(0, bindex);
+            String basePart = num.substring(bindex + 1);
+            char baseChar = basePart.charAt(0);
+            int base = Character.digit(baseChar, 36);
+            if (numPart.length()==0){
+                return false;
+            }
+            char[] chars= numPart.toCharArray();
+            for(int i=0; i<chars.length; i++){
+                if(Character.digit(chars[i],base)==-1){ return false;
+                }
+            }
+        return true;
+        }
+
+
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
@@ -33,10 +87,60 @@ public class Ex1 {
         public static boolean isNumber(String a) {
             boolean ans = true;
             // add your code here
+            if (a == null || a.isEmpty()) {
+                return false;
+            }
+            int bindex = a.indexOf('b');
+            if (bindex == 0 || bindex == a.length()-1) {
+                return false;
+            }
+            String numPart = a.substring(0, bindex);
+            String basePart = a.substring(bindex + 1);
 
-            ////////////////////
+            if (!isValidnum(numPart)) {
+                return false;
+            }
+            if (!isValidbase(basePart)) {
+                return false;
+            }
+
+            char baseChar = basePart.charAt(0);
+            int base = Character.digit(baseChar, 36);
+            if(base<2 || base>16){
+                return false;
+            }
             return ans;
+
+
         }
+
+    private static boolean isValidBase(String basePart) {
+        if (basePart.isEmpty()) {
+            return false;
+        }
+
+        for (char c : basePart.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false; // Base must only contain digits
+            }
+        }
+
+        int base = Integer.parseInt(basePart); // Safe to parse now
+        return base >= 2 && base <= 16;
+    }
+
+    private static boolean isValidNumForBase(String numPart, int base) {
+        if (numPart.isEmpty()) {
+            return false; // No digits
+        }
+
+        for (char c : numPart.toCharArray()) {
+            if (Character.digit(c, base) == -1) {
+                return false; // Invalid digit for the base
+            }
+        }
+        return true;
+    }
 
         /**
          * Calculate the number representation (in basis base)
@@ -48,9 +152,22 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             String ans = "";
-            // add your code here
+            if (num==0){
+                return "0";
+            }
+            if(num>0 && base>=2 && base<=16){
+                String result = ""; // Initialize result as an empty string
+                int n = num;
 
-            ////////////////////
+                while (n > 0) {
+                    int remainder = n % base; //Calculating the remainder, the remainder is the last digit of the new number(the converted number)
+                    char digitChar = Character.forDigit(remainder, base); //Converting the remainder to a digit according to the base
+                    result = digitChar + result; // Adding the digit to the start of the string
+                    n /= base;
+                }
+                result = result.toUpperCase(); //Convering to Upper letters
+                return result + "b" + base;
+            }
             return ans;
         }
 
@@ -62,10 +179,10 @@ public class Ex1 {
          */
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
-            // add your code here
-
-            ////////////////////
-            return ans;
+         if(number2Int(n1) != number2Int(n2)){
+             return false;
+            }
+         return ans;
         }
 
         /**
