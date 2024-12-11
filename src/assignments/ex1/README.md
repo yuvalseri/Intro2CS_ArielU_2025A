@@ -1,0 +1,1 @@
+In this assignment, we will design a number formatting converter and calculator. In general, we will use Strings as numbers over the base of binary till Hexa (2-16), 10-16 are represented by A,B,..G. The general representation of the numbers is as a String with the following format: <number><b><base> 

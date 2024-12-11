@@ -37,6 +37,7 @@ public class Ex1Test {
                 boolean not_ok = Ex1.isNumber(not_good[i]);
                 assertFalse(not_ok);
             }
+
         }
         @Test
         public void int2NumberTest() {
@@ -49,9 +50,36 @@ public class Ex1Test {
             assertEquals("0", int2Number(0, 2));
         }
         @Test
-        public void maxIndexTest() {
-            // implement this test
+        public void number2Int(){
+            assertEquals(15, Ex1.number2Int("15bA"));
+            assertEquals(15, Ex1.number2Int("15"));
+            assertEquals(2, Ex1.number2Int("10b2"));
+            assertEquals(1798, Ex1.number2Int("706bG"));
+            assertEquals(153, Ex1.number2Int("231b8"));
+            assertEquals(1, Ex1.number2Int("1b2"));
+            assertEquals(-1, Ex1.number2Int("G1b2"));
+            assertEquals(1, Ex1.number2Int("1"));
+            assertEquals(-1, Ex1.number2Int(null));
         }
 
-        // Add additional test functions - test as much as you can.
-    }
+        @Test
+        public void maxIndexTest() {
+            // implement this test
+            String[] arr1 = {"10", "1b2", "FAbG", "100bA"};
+            assertEquals(2, Ex1.maxIndex(arr1));
+
+            String[] arr = {"1b2", "10b2", "11b2", "100b2"};
+            assertEquals(3, Ex1.maxIndex(arr));
+
+        }
+        @Test
+        public void equals(){
+            assertTrue(Ex1.equals("15", "15bA"));
+            assertTrue(Ex1.equals("1010b2", "10bA"));
+            assertTrue(Ex1.equals("A0b16", "160"));
+
+            assertFalse(Ex1.equals("10", "19bG"));
+            assertFalse(Ex1.equals("123bG", "123"));
+            assertFalse(Ex1.equals("20b8", "16b10"));
+         }
+       }
