@@ -68,8 +68,11 @@ public class Ex1Test {
             String[] arr1 = {"10", "1b2", "FAbG", "100bA"};
             assertEquals(2, Ex1.maxIndex(arr1));
 
-            String[] arr = {"1b2", "10b2", "11b2", "100b2"};
-            assertEquals(3, Ex1.maxIndex(arr));
+            String[] arr2 = {"1b2", "10b2", "11b2", "100b2"};
+            assertEquals(3, Ex1.maxIndex(arr2));
+
+            String[] arr3 = {"1000bA", "1011b2", "BDb16", "100b8"};
+            assertEquals(0, Ex1.maxIndex(arr3));
 
         }
         @Test
