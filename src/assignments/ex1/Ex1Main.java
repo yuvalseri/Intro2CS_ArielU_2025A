@@ -20,7 +20,7 @@ public class Ex1Main {
                 System.out.println("num1: " + num1 + " is number: " + Ex1.isNumber(num1)+ " value: " + Ex1.number2Int(num1));
 
                 if (!Ex1.isNumber(num1)) {
-                    System.out.println("Err: num1 is invalid");
+                    System.out.println("ERR: num1 is in the wrong format!"+"("+ num1+")");
                     continue;
                 }
             }
@@ -30,7 +30,7 @@ public class Ex1Main {
                 System.out.println(" num1: " + num2 + " is number: " + Ex1.isNumber(num2) + " value: " + Ex1.number2Int(num2));
 
                 if (!Ex1.isNumber(num2)) {
-                        System.out.println("Err: num2 is invalid");
+                        System.out.println("ERR: num2 is in the wrong format!" + " ("+ num2+")");
                         continue;
                     }
             }
@@ -43,14 +43,16 @@ public class Ex1Main {
             }
 
             System.out.println(base);
-            System.out.println(num1+ "+"+ num2 + "=" + (Ex1.number2Int(num1) + Ex1.number2Int(num2)));
-            System.out.println(num1+ "*"+ num2 + "=" + (Ex1.number2Int(num1) * Ex1.number2Int(num2)));
+            System.out.println(num1+ " + "+ num2 + " = " + Ex1.int2Number(Ex1.number2Int(num1) + Ex1.number2Int(num2), base));
+            System.out.println(num1+ " * "+ num2 + " = " + Ex1.int2Number(Ex1.number2Int(num1) * Ex1.number2Int(num2), base));
+
             String[] arr= new String[4];
              arr[0]= num1;
              arr[1]= num2;
-             arr[2]= String.valueOf((Ex1.number2Int(num1) + Ex1.number2Int(num2)));;
-             arr[3]= String.valueOf(Ex1.number2Int(num1) * Ex1.number2Int(num2));
-            System.out.println("Max number over" + "["+ num1+ "," + num2+ "," + (Ex1.number2Int(num1) + Ex1.number2Int(num2)) + "," + (Ex1.number2Int(num1) * Ex1.number2Int(num2)) + "]" + " is: "+ arr[Ex1.maxIndex(arr)]);
+             arr[2]= Ex1.int2Number(Ex1.number2Int(num1) + Ex1.number2Int(num2), base);
+             arr[3]= Ex1.int2Number(Ex1.number2Int(num1) * Ex1.number2Int(num2), base);
+
+             System.out.println("Max number over" + "["+arr[0] + "," +arr[1] + "," + arr[2] + "," + arr[3] + "]" + " is: "+ arr[Ex1.maxIndex(arr)]);
         }
         System.out.println("quiting now...");
     }

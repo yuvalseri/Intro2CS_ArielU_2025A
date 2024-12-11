@@ -27,7 +27,7 @@ public class Ex1Test {
 
         @Test
         public void isBasisNumberTest() {
-            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA"};
+            String[] good = {"1", "1b2", "01b2", "123bA", "ABbG", "0bA","1000"};
             for(int i=0;i<good.length;i=i+1) {
                 boolean ok = Ex1.isNumber(good[i]);
                 assertTrue(ok);
@@ -41,13 +41,15 @@ public class Ex1Test {
         }
         @Test
         public void int2NumberTest() {
-            assertEquals("15b10", int2Number(15, 10));
+            assertEquals("15", int2Number(15, 10));
             assertEquals("11b2", int2Number(3, 2));
             assertEquals("222b8", int2Number(146, 8));
-            assertEquals("Fb16", int2Number(15, 16));
+            assertEquals("FbG", int2Number(15, 16));
             assertEquals("", int2Number(-2, 10));
             assertEquals("", int2Number(5, 17));
             assertEquals("0", int2Number(0, 2));
+
+
         }
         @Test
         public void number2Int(){
@@ -71,18 +73,22 @@ public class Ex1Test {
             String[] arr2 = {"1b2", "10b2", "11b2", "100b2"};
             assertEquals(3, Ex1.maxIndex(arr2));
 
-            String[] arr3 = {"1000bA", "1011b2", "BDb16", "100b8"};
+            String[] arr3 = {"1000bA", "1011b2", "BDbG", "100b8"};
             assertEquals(0, Ex1.maxIndex(arr3));
+
+            String[] arr4 = {"1001b2", "11b3", "13", "36"};
+            assertEquals(3, Ex1.maxIndex(arr4));
 
         }
         @Test
         public void equals(){
             assertTrue(Ex1.equals("15", "15bA"));
             assertTrue(Ex1.equals("1010b2", "10bA"));
-            assertTrue(Ex1.equals("A0b16", "160"));
+            assertTrue(Ex1.equals("A0bG", "160"));
 
             assertFalse(Ex1.equals("10", "19bG"));
             assertFalse(Ex1.equals("123bG", "123"));
             assertFalse(Ex1.equals("20b8", "16b10"));
          }
+
        }

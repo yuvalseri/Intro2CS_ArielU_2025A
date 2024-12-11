@@ -91,6 +91,10 @@ public class Ex1 {
             String num= "0123456789"; //the valid digits
             char lastChar = a.charAt(a.length()-1); // the last char in the string a
 
+            if (!a.contains("b") && a.chars().allMatch(Character::isDigit)) { // if b doesn't exist in the string and all the chars are digits
+                return true; // the base is 10 and the string is valid
+            }
+
             if (a.length()<2 && num.contains(String.valueOf(lastChar))){ //if the string is only one char and is a digit
                 return true;
             }
@@ -142,7 +146,11 @@ public class Ex1 {
                     num /= base; // dividing the number in the base and then updating the value of num
                 }
                 result = result.toUpperCase(); //Convering to Upper letters
-                return result + "b" + base; // return the string in format of the converted number then 'b' and then the base
+                if (base == 10) { // if the base is 10
+                    return result; // return only the number part without 'b' and the base
+                }
+                char baseChar = (base <= 10) ? (char) ('0' + base) : (char) ('A' + (base - 10)); // if the base smaller than 10 write the base as a digit and if the base is greater than 10 write the base as a big letter(B-G)
+                return result + "b" + baseChar; // return the string in format of the converted number then 'b' and then the base
             }
             return ans; // return the string
         }
