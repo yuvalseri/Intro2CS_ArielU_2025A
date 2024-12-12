@@ -19,9 +19,7 @@ public class Ex1 {
          * @return
          */
         public static int number2Int(String num) {
-            if (num == null || num.isEmpty()) { // if the string is null or empty
-                return -1; // the num is invalid
-            }
+
             if (!isNumber(num)) { //if num is invalid
                 return -1;
             }
@@ -29,17 +27,10 @@ public class Ex1 {
             int base = 10; // if b doesn't exist the base is 10
 
             if (bindex != -1) { // if b exists
-                if (bindex == 0 || bindex == num.length() - 1) { //if b is located in the first char or the last char of the string
-                    return -1; // the string is invalid
-                }
                 String basePart = num.substring(bindex + 1); // string of the base
-                base = Character.digit(basePart.charAt(0), 36); // Converting the char to numerical value
-                if (base < 2 || base > 16) { // if base is not in the range of 2 to 16
-                    return -1; // the base is invalid
-                }
+                 base = Character.digit(basePart.charAt(0), 36); // Converting the char to numerical value
                 num = num.substring(0, bindex); // string of the number part
             }
-
             int decimalnum = 0; //Initializing the decimal number as 0
             for (int i = 0; i < num.length(); i++) { // a loop that passes all the chars of the number part string
                 int digit = Character.digit(num.charAt(i), base); //converting all char in ths string to numerical value according to the base
@@ -51,35 +42,6 @@ public class Ex1 {
             return decimalnum; // return the final decimal value of the number
         }
 
-    /*public static boolean isValidbase(String basePart){
-            if (basePart.length() != 1){                     //if the length of the base is different from 1
-                return false;                                  // The base is only one char
-            }
-            char baseChar= basePart.charAt(0);
-            int base = Character.digit(baseChar, 36);   //Converting the char to int value
-            if( base >= 2 && base <= 16){
-                return true;                                // if the value of base is between 2 to 16,the base is valid
-            }
-            return false;
-        }
-        public static boolean isValidnum(String num){
-            int bindex = num.indexOf('b');
-            String numPart = num.substring(0, bindex);
-            String basePart = num.substring(bindex + 1);
-            char baseChar = basePart.charAt(0);
-            int base = Character.digit(baseChar, 36);
-            if (numPart.length()==0){
-                return false;
-            }
-            char[] chars= numPart.toCharArray();
-            for(int i=0; i<chars.length; i++){
-                if(Character.digit(chars[i],base)==-1){ return false;
-                }
-            }
-        return true;
-        } */
-
-
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
@@ -90,6 +52,17 @@ public class Ex1 {
             String validChar= "0123456789ABCDEFG"; // the valid chars
             String num= "0123456789"; //the valid digits
             char lastChar = a.charAt(a.length()-1); // the last char in the string a
+            int bindex = a.indexOf('b'); //Finding the index of b
+
+            if (bindex != -1) { // if b exists
+                if (bindex == 0 || bindex == a.length() - 1) { //if b is located in the first char or the last char of the string
+                    return false; // the string is invalid
+                }
+            }
+            if (a.isEmpty()) { // if the string is empty
+                return false; // the num is invalid
+            }
+
 
             if (!a.contains("b") && a.chars().allMatch(Character::isDigit)) { // if b doesn't exist in the string and all the chars are digits
                 return true; // the base is 10 and the string is valid
@@ -114,8 +87,8 @@ public class Ex1 {
             String currentString =validChar.substring(0, baseIndex); // string of the valid chars for the base
             String numPart= a.substring(0,indexOfb); //the number part of the string
             for (int i=0; i< numPart.length(); i++){ // A loop that passes the chars in the numPart string
-                char currentChar = a.charAt(i); //The current char int the string
-                if (!currentString.contains(String.valueOf(currentChar))){ //if the currentChar doesn't exsits in the currentString
+                char currentChar = a.charAt(i); //The current char in the string
+                if (!currentString.contains(String.valueOf(currentChar))){ //if the currentChar doesn't exist in the currentString
                     ans = false; // the string is invalid
                 }
             }
@@ -136,7 +109,7 @@ public class Ex1 {
             if (num==0){ // if the number is 0
                 return "0"; // return 0
             }
-            if(num>0 && base>=2 && base<=16){ // if the number is graeter than 0 and the base is valid
+            if(num>0 && base>=2 && base<=16){ // if the number is greater than 0 and the base is valid
                 String result = ""; // Initialize result as an empty string
 
                 while (num > 0) {
@@ -145,7 +118,7 @@ public class Ex1 {
                     result = digitChar + result; // Adding the digit to the start of the string
                     num /= base; // dividing the number in the base and then updating the value of num
                 }
-                result = result.toUpperCase(); //Convering to Upper letters
+                result = result.toUpperCase(); //Converting to Upper letters
                 if (base == 10) { // if the base is 10
                     return result; // return only the number part without 'b' and the base
                 }

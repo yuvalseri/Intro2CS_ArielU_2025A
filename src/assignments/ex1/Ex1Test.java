@@ -61,7 +61,7 @@ public class Ex1Test {
             assertEquals(1, Ex1.number2Int("1b2"));
             assertEquals(-1, Ex1.number2Int("G1b2"));
             assertEquals(1, Ex1.number2Int("1"));
-            assertEquals(-1, Ex1.number2Int(null));
+            assertEquals(-1, Ex1.number2Int(" "));
         }
 
         @Test
