@@ -26,9 +26,10 @@ two values, if they are equal the function returns "true".
 5. public static int maxIndex(String[] arr):
 The function gets an array of strings. 
 There is a loop that passes all the array, it converts the strings to integer values. At first the max value is 
-initalized as the minimum value of Jave. The function passes the array and every time it find greater value it updates 
+initialized as the minimum value of Jave. The function passes the array and every time it find greater value it updates 
 the "max value". After it passes al the indexes in the array it has the maximum value of the array. 
 After that it returns the index of the max value.
+
 
 In the main file the user is asked to enter two numbers (as a string) in the format: <number><b><base>.
 If the number is invalid it will print "The number is not in the format" ask the user to enter number again.

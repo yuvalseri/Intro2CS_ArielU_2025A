@@ -19,33 +19,35 @@ public class Ex1 {
          * @return
          */
         public static int number2Int(String num) {
-
-            if (!isNumber(num)) { //if num is invalid
+            if (!isNumber(num)) { // If num is invalid
                 return -1;
             }
-            int bindex = num.indexOf('b'); // Finding the index of b
-            int base = 10; // if b doesn't exist the base is 10
+            int bindex = num.indexOf('b'); // Find the index of 'b'
+            int base = 10; // Default base
+            String numPart = num; // When the base is 10 the numPart is all the original string
 
-            if (bindex != -1) { // if b exists
-                String basePart = num.substring(bindex + 1); // string of the base
-                 base = Character.digit(basePart.charAt(0), 36); // Converting the char to numerical value
-                num = num.substring(0, bindex); // string of the number part
+            if (bindex != -1) { // If 'b' exists
+                base = Character.digit(num.charAt(bindex + 1), 36); // Converting the char of the base to numerical value
+                numPart = num.substring(0, bindex); // String of the number part of the string
             }
-            int decimalnum = 0; //Initializing the decimal number as 0
-            for (int i = 0; i < num.length(); i++) { // a loop that passes all the chars of the number part string
-                int digit = Character.digit(num.charAt(i), base); //converting all char in ths string to numerical value according to the base
-                if (digit == -1) { // if the digit is invalid accordingly to the base
+
+            int decimalnum = 0; // Initializing the decimal number as 0
+            for (int i = 0; i < numPart.length(); i++) { // a loop that passes all the chars of the number part string
+                int digit = Character.digit(numPart.charAt(i), base); //converting all char in ths string to numerical value according to the base
+                if (digit == -1) { // If the digit is invalid for the base
                     return -1;
                 }
-                decimalnum = decimalnum * base + digit; // calculating the decimal value of the number
+                decimalnum = decimalnum * base + digit; // Calculate the decimal value
             }
-            return decimalnum; // return the final decimal value of the number
+            return decimalnum; // Return the final decimal value
         }
 
         /**
          * This static function checks if the given String (g) is in a valid "number" format.
          * @param a a String representing a number
          * @return true iff the given String is in a number format
+         *
+         *
          */
         public static boolean isNumber(String a) {
             boolean ans= true; // Initializing ans as true
@@ -137,9 +139,9 @@ public class Ex1 {
         public static boolean equals(String n1, String n2) {
             boolean ans = true; //Initializing ans as true
          if(number2Int(n1) != number2Int(n2)){ //if the numerical value of n1 is different from the value of n2
-             return false;
+             return false; //the strings aren't equal
             }
-         return ans; // return true;
+         return ans; // return true (the strings are equal)
         }
 
         /**
